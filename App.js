@@ -12,52 +12,10 @@ import {Button, StyleSheet, Text, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+import HomeScreen from './screens/HomeScreen';
+import DetailScreen from './screens/DetailScreen';
 
-const HomeScreen = ({navigation}) => {
-  return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text> Home Screen </Text>
-      <Button
-        title=" Go to Detail Screen"
-        onPress={() => {
-          navigation.navigate('Details');
-        }}
-      />
-    </View>
-  );
-};
 
-const DetailScreen = ({navigation}) => {
-  return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text> Detail Screen </Text>
-      <Button
-        title=" Go to Detail Screen ...again"
-        onPress={() => {
-          navigation.push('Details');
-        }}
-      />
-      <Button
-        title=" Go to Home Screen"
-        onPress={() => {
-          navigation.navigate('Home');
-        }}
-      />
-      <Button
-        title=" Go to Back"
-        onPress={() => {
-          navigation.goBack();
-        }}
-      />
-      <Button
-        title=" Go to the first Screen"
-        onPress={() => {
-          navigation.popToTop();
-        }}
-      />
-    </View>
-  );
-};
 
 const Stack = createStackNavigator();
 export default function App() {
