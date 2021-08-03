@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -7,9 +8,10 @@
  */
 
 import React from 'react';
-import {Button, StyleSheet, Text, useColorScheme, View} from 'react-native';
+import {Button, StyleSheet, Text, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 
 const HomeScreen = ({navigation}) => {
   return (
