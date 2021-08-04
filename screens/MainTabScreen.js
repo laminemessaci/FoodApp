@@ -38,7 +38,7 @@ export default  MainTabScreen = ()=> {
             name="Notification"
             component={DetailStackScreen}
             options={{
-              tabBarLabel: 'Home',
+              tabBarLabel: 'Details',
               tabBarColor: "#a29880",
               tabBarIcon: ({ color }) => (
                 <MaterialCommunityIcons name="bell" color={color} size={26} />

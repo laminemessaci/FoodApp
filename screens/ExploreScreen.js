@@ -8,13 +8,8 @@ import { View, Text, Button } from 'react-native'
 export default  ExploreScreen = ({navigation}) => {
     return (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <Text> Home Screen </Text>
-        <Button
-          title=" Go to Detail Screen"
-          onPress={() => {
-            navigation.navigate("Detail");
-          }}
-        />
+        <Text> Explore Screen </Text>
+        
       </View>
     );
   };

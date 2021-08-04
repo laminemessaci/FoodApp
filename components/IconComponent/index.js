@@ -1,11 +1,22 @@
+/* eslint-disable no-undef */
+/* eslint-disable prettier/prettier */
 /* eslint-disable quotes */
 import PropTypes from "prop-types";
 
+import { MaterialIcons,
+  Entypo,
+  AntDesign,
+  FontAwesome,
+  Ionicons,
+  SimpleLineIcons,
+  FontAwesome5,MaterialCommunityIcons} from 'react-native-vector-icons/MaterialCommunityIcons';
 /**
  *
  * @param {boolean} focused
+ * 
  */
-export const IconComponent = ({
+ 
+ export default IconComponent = ({
   iconType,
   iconSize,
   iconName,
