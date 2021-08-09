@@ -7,8 +7,8 @@
  * @flow strict-local
  */
 
-import React from 'react';
-import { StyleSheet, Text, View} from 'react-native';
+import React, {useEffect, useMemo, useState} from 'react';
+import { StyleSheet, Text, View, ActivityIndicator} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 
 import {createDrawerNavigator} from '@react-navigation/drawer';
@@ -18,6 +18,7 @@ import SupportScreen from './screens/SupportScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import BookMarkScreen from './screens/BookMarkScreen';
 import { RootStackScreen } from './screens/RootStackScreen';
+import { AuthContext } from './components/context';
 
 
 
@@ -27,18 +28,61 @@ import { RootStackScreen } from './screens/RootStackScreen';
 const Drawer = createDrawerNavigator();
 
 export default function App() {
-  return (
-    <NavigationContainer  >
-<RootStackScreen  headerMode= "none"/>
-{/* <Drawer.Navigator drawerContent = {props=> <DrawerContent {...props}  /> }>
+const [isLoading, setIsLoading] = React.useState(true);
+const [userToken, setUserToken] = React.useState(null);
 
+const authContext = useMemo(()=>({
+  singIn:()=>{
+    setUserToken("blabla");
+    setIsLoading(false);
+  },
+
+  singUp:()=>{
+    setUseToken("blabla");
+    setIsLoading(false);
+  },
+
+  singOut:()=>{
+    setUseToken(null);
+    setIsLoading(false);
+  }
+}))
+
+useEffect(() => {
+  console.log(authContext.singIn)
+  setTimeout(()=>{
+    setIsLoading(false)
+  }, 1500)
+ 
+}, [])
+
+if( isLoading ) {
+  return(
+    <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
+      <ActivityIndicator size="large"/>
+    </View>
+  );
+}
+
+  return (
+    <AuthContext.Provider value={authContext} >
+
+    <NavigationContainer  >
+    {userToken !== null ? (
+      <Drawer.Navigator drawerContent = {props=> <DrawerContent {...props}  /> }>
       <Drawer.Screen name="Home" component={MainTabScreen} />
       <Drawer.Screen name="SupportScreen" component={SupportScreen} />
       <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
       <Drawer.Screen name="BookmarkScreen" component={BookMarkScreen} />
-    </Drawer.Navigator> */}
+    </Drawer.Navigator>
+    ) : (
+      <RootStackScreen  headerMode= "none"/>
+    ) }
+
+
      
     </NavigationContainer>
+    </AuthContext.Provider>
   );
 }
 const styles = StyleSheet.create({
