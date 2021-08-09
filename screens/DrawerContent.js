@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React from 'react';
+import React, {useContext} from 'react';
 import { View, StyleSheet } from 'react-native';
 import {
     useTheme,
@@ -27,7 +27,7 @@ export function DrawerContent(props) {
     const paperTheme = useTheme();
     
 
-    const { signOut, toggleTheme } = React.useContext(AuthContext);
+    const { signOut, toggleTheme } = useContext(AuthContext);
 
     return(
         <View style={{flex:1}}>

@@ -36,23 +36,23 @@ const authContext = useMemo(()=>({
     setUserToken("blabla");
     setIsLoading(false);
   },
-
+  signOut:()=>{
+    setUserToken(null);
+    setIsLoading(false);
+  },
   singUp:()=>{
-    setUseToken("blabla");
+    setUserToken("blabla");
     setIsLoading(false);
   },
 
-  singOut:()=>{
-    setUseToken(null);
-    setIsLoading(false);
-  }
+  
 }))
 
 useEffect(() => {
   console.log(authContext.singIn)
   setTimeout(()=>{
     setIsLoading(false)
-  }, 1500)
+  }, 1000)
  
 }, [])
 
